@@ -126,6 +126,7 @@ export class Level003 extends Phaser.Scene {
         this.sound.play('ouch')
         this.lives--;
         this.laserLimit = 0;
+        return;
     }
 
     /////
@@ -389,7 +390,7 @@ export class Level003 extends Phaser.Scene {
 
         console.log(this.points);
         if(this.points >= 15){
-            this.scene.start('Level002');
+            this.scene.start('Won');
         }
 
         this.livesText.text = `${this.lives}`;

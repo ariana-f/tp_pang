@@ -126,6 +126,7 @@ export class Level001 extends Phaser.Scene {
         this.sound.play('ouch')
         this.lives--;
         this.laserLimit = 0;
+        return;
     }
 
     /////
