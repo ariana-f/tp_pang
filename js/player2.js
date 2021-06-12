@@ -11,58 +11,58 @@ export class Player2 extends Phaser.Physics.Arcade.Sprite {
         this.initialFrame = frame;
 
         this.velocity = 2000;
-        var keys = scene.input.keyboard.addKeys({ up: 'W', left: 'A', right: 'D' });
+        //this.controls = scene.input.keyboard.createCursorKeys();
+        this.controls2 = scene.input.keyboard.addKeys({ 
+             'up': Phaser.Input.Keyboard.KeyCodes.W,
+             'left': Phaser.Input.Keyboard.KeyCodes.A,
+             'right': Phaser.Input.Keyboard.KeyCodes.D });
 
-        this.state = "idle";
-        this.anims.play('idle');
+
+        this.state = "idle2";
+        this.anims.play('idle2');
 
         this.previous_state = this.state;
         this.lives = 3;
     }
 
     update(time) {
-        // if(this.controls.left.isDown) {
-        //     this.setVelocityX(-this.velocity);
-        //     this.flipX = true;
-        //     this.state = 'walking';
-        // }
-        if(this.input.keyboard.A.isDown) {
+        if(this.controls2.left.isDown) {
             this.setVelocityX(-this.velocity);
             this.flipX = true;
-            this.state = 'walking';
+            this.state = 'walking2';
         }
-        else if(this.controls.right.isDown) {
+        else if(this.controls2.right.isDown) {
             this.setVelocityX(this.velocity);
             this.flipX = false;
-            this.state = 'walking';
+            this.state = 'walking2';
         }
         else {
             this.setVelocityX(0);
-            this.state = "idle";
+            this.state = "idle2";
         }
 
-        if(this.controls.space.isDown) {
-            this.state = 'scream';
+        if(this.controls2.up.isDown) {
+            this.state = 'scream2';
             this.setVelocityX(0);
         }
 
         if(this.state != this.previous_state) {
             this.previous_state = this.state;
 
-            if(this.state == 'walking')
+            if(this.state == 'walking2')
             {
-                this.anims.play('walking');
+                this.anims.play('walking2');
             }
-            if(this.state == 'idle')
+            if(this.state == 'idle2')
             {
-                this.anims.play('idle');
+                this.anims.play('idle2');
             }
-            if(this.state == 'scream')
+            if(this.state == 'scream2')
             {
-                this.anims.play('scream');
+                this.anims.play('scream2');
             }
-            
-            else if (this.state == 'idle') {
+
+            else if (this.state == 'idle2') {
                 this.setFrame(this.initialFrame);
             }
         }

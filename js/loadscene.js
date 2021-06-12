@@ -28,6 +28,7 @@ export class LoadScene extends Phaser.Scene {
         });
 
         this.load.image('laser', './images/harpon.png');
+        this.load.image('laser2', './images/Harpon_2.png');
 
         this.load.spritesheet('meteors', './images/meteors.png', { 
         frameWidth: 256,

@@ -57,12 +57,68 @@ class Laser extends Phaser.Physics.Arcade.Sprite {
 	}
 }
 
+class LaserGroup2 extends Phaser.Physics.Arcade.Group
+{
+	constructor(scene) {
+		super(scene.physics.world, scene);
+		this.createMultiple({
+			classType: Laser2,
+			frameQuantity: 100,
+			active: false,
+			visible: false,
+			key: 'laser2'
+		})
+	}
+
+    fireLaser2(x, y) {
+		const laser2 = this.getFirstDead(false);
+		if (laser2) {
+			laser2.fire(x, y);
+            var random = Phaser.Math.Between(0, 1);          
+            if(random == 0){
+                this.scene.sound.play('roar');
+            }
+            else{
+                this.scene.sound.play('roar2');
+            }
+		}
+	}
+}
+ 
+class Laser2 extends Phaser.Physics.Arcade.Sprite {
+	constructor(scene, x, y) {      
+		super(scene, x, y, 'laser2');
+	}
+
+    fire2(x, y) {
+		this.body.reset(x, y);
+        this.body.setAllowGravity(false)
+		this.setActive(true);
+		this.setVisible(true);
+
+		this.setVelocityY(-2000);
+        this.setScale(15);      
+    }
+
+    preUpdate(time, delta) {
+		super.preUpdate(time, delta);
+ 
+		if (this.y <= 2500) {
+			this.setActive(false);
+			this.setVisible(false);
+            this.scene.laserLimit2 = 0;
+		}
+	}
+}
+
 export class Level001 extends Phaser.Scene {
     constructor() {
         super('Level001');
         this.laserLimit = 0;
+        this.laserLimit2 = 0;
 
         this.laserGroup;
+        this.LaserGroup2;
 
         this.points = 0;        
     }
@@ -70,6 +126,11 @@ export class Level001 extends Phaser.Scene {
     init() {
 
         this.controls = this.input.keyboard.createCursorKeys();
+
+        this.controls2 = this.input.keyboard.addKeys({ 
+            'up': Phaser.Input.Keyboard.KeyCodes.W,
+            'left': Phaser.Input.Keyboard.KeyCodes.A,
+            'right': Phaser.Input.Keyboard.KeyCodes.D });
 
         this.lives = 3;
     }
@@ -99,6 +160,9 @@ export class Level001 extends Phaser.Scene {
 
         this.laserGroup = new LaserGroup(this);
         this.physics.add.collider(this.laserGroup, this.meteors, this.laserHitMeteors, null, this);
+
+        this.laserGroup2 = new LaserGroup2(this);
+        this.physics.add.collider(this.laserGroup2, this.meteors, this.laserHitMeteors, null, this);
                 
         this.add.text(100, 100, 'Level 01', {
             fontFamily: 'Arial',
@@ -117,14 +181,15 @@ export class Level001 extends Phaser.Scene {
 
         this.player2 = new Player2(
             this,
-            this.game.config.width * 0.5,
+            this.game.config.width * 0.7,
             this.game.config.height,
             'player2', 0
             ).setDepth(2);
 
             this.player2.setSize(100,175);
             this.player2.body.offset.y = 100;
-
+        
+        this.physics.add.collider(this.player2, this.meteors, this.PlayerHitMeteors, null, this);
         //this.prepareHUD();
     }
 
@@ -137,6 +202,7 @@ export class Level001 extends Phaser.Scene {
         this.sound.play('ouch')
         this.lives--;
         this.laserLimit = 0;
+        this.laserLimit2 = 0;
         return;
     }
 
@@ -394,9 +460,13 @@ export class Level001 extends Phaser.Scene {
 
     update(time) {
         this.player.update(time);
+        this.player2.update(time);
 
         if(this.controls.space.isDown) {
             this.shootLaser();
+        }
+        if(this.controls.up.isDown) {
+            this.shootLaser2();
         }
 
         console.log(this.points);
@@ -418,6 +488,17 @@ export class Level001 extends Phaser.Scene {
          else {
         this.laserLimit++;
         this.laserGroup.fireLaser(this.player.x, 8000);
+        }
+    }
+    shootLaser2() {
+        console.log(+ this.laserLimit2);
+        if (this.laserLimit2 >= 1)
+        {
+            return;
+        }
+         else {
+        this.laserLimit2++;
+        this.laserGroup2.fireLaser2(this.player2.x, 8000);
         }
     }
 }
