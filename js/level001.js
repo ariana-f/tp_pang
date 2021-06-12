@@ -213,6 +213,7 @@ export class Level001 extends Phaser.Scene {
     laserHitMeteors(laserGroup, meteors)
     {
         this.laserLimit = 0; 
+        this.laserLimit2 = 0;
         this.meteors1 = new Meteors(
             this, this.meteors.x,
             this.meteors.y,
@@ -233,12 +234,14 @@ export class Level001 extends Phaser.Scene {
         this.physics.add.collider(this.player2, this.meteors11, this.PlayerHitMeteors, null, this);
         meteors.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
 
         this.points = this.points + 1;
     }
 
     laserHitMeteors1(laserGroup, meteors1){
         this.laserLimit = 0; 
+        this.laserLimit2 = 0; 
         this.meteors2 = new Meteors(
             this, this.meteors1.x,
             this.meteors1.y,
@@ -259,12 +262,14 @@ export class Level001 extends Phaser.Scene {
         this.physics.add.collider(this.player2, this.meteors222, this.PlayerHitMeteors, null, this);
         meteors1.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
 
         this.points = this.points + 1;
     }
 
     laserHitMeteors222(laserGroup, meteors222){
         this.laserLimit = 0; 
+        this.laserLimit2 = 0; 
         this.meteors13333 = new Meteors(
             this, this.meteors222.x,
             this.meteors222.y,
@@ -285,12 +290,14 @@ export class Level001 extends Phaser.Scene {
         this.physics.add.collider(this.player2, this.meteors23333, this.PlayerHitMeteors, null, this);
         meteors222.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
 
         this.points = this.points + 1;
     }
  
     laserHitMeteors11(laserGroup, meteors11){
         this.laserLimit = 0; 
+        this.laserLimit2 = 0; 
         this.meteors22 = new Meteors(
             this, this.meteors11.x,
             this.meteors11.y,
@@ -311,12 +318,14 @@ export class Level001 extends Phaser.Scene {
         this.physics.add.collider(this.player2, this.meteors122, this.PlayerHitMeteors, null, this);
         meteors11.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
 
         this.points = this.points + 1;
     }
 
     laserHitMeteors122(laserGroup, meteors122){
         this.laserLimit = 0; 
+        this.laserLimit2 = 0;
         this.meteors4433 = new Meteors(
             this, this.meteors122.x,
             this.meteors122.y,
@@ -337,12 +346,14 @@ export class Level001 extends Phaser.Scene {
         this.physics.add.collider(this.player2, this.meteors533, this.PlayerHitMeteors, null, this);
         meteors122.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
 
         this.points = this.points + 1;
     }
 
     laserHitMeteors22(laserGroup, meteors22){
         this.laserLimit = 0; 
+        this.laserLimit2 = 0; 
         this.meteors33 = new Meteors(
             this, this.meteors22.x,
             this.meteors22.y,
@@ -363,12 +374,14 @@ export class Level001 extends Phaser.Scene {
         this.physics.add.collider(this.player2, this.meteors3333, this.PlayerHitMeteors, null, this);
         meteors22.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
 
         this.points = this.points + 1;
     }
 
     laserHitMeteors2(laserGroup, meteors2){
         this.laserLimit = 0; 
+        this.laserLimit2 = 0; 
         this.meteors3 = new Meteors(
             this, this.meteors2.x,
             this.meteors2.y,
@@ -389,14 +402,17 @@ export class Level001 extends Phaser.Scene {
         this.physics.add.collider(this.player2, this.meteors333, this.PlayerHitMeteors, null, this);
         meteors2.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
 
         this.points = this.points + 1;
     }
 
     laserHitMeteors1333(laserGroup, meteors1333){
         this.laserLimit = 0; 
+        this.laserLimit2 = 0; 
         meteors1333.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
         console.log("7");
         this.physics.add.collider(this.player, this.meteors1333, this.PlayerHitMeteors, null, this);
         this.physics.add.collider(this.player2, this.meteors1333, this.PlayerHitMeteors, null, this);
@@ -407,8 +423,10 @@ export class Level001 extends Phaser.Scene {
 
     laserHitMeteors23333(laserGroup, meteors23333){
         this.laserLimit = 0; 
+        this.laserLimit2 = 0; 
         meteors23333.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
         console.log("6");
         this.physics.add.collider(this.player, this.meteors23333, this.PlayerHitMeteors, null, this);
         this.physics.add.collider(this.player2, this.meteors23333, this.PlayerHitMeteors, null, this);
@@ -419,8 +437,10 @@ export class Level001 extends Phaser.Scene {
 
     laserHitMeteors333(laserGroup, meteors333){
         this.laserLimit = 0; 
+        this.laserLimit2 = 0; 
         meteors333.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
         console.log("5");
         this.physics.add.collider(this.player, this.meteors333, this.PlayerHitMeteors, null, this);
         this.physics.add.collider(this.player2, this.meteors333, this.PlayerHitMeteors, null, this);
@@ -431,8 +451,10 @@ export class Level001 extends Phaser.Scene {
 
     laserHitMeteors3333(laserGroup, meteors3333){
         this.laserLimit = 0; 
+        this.laserLimit2 = 0; 
         meteors3333.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
         console.log("4");
         this.physics.add.collider(this.player, this.meteors3333, this.PlayerHitMeteors, null, this);
         this.physics.add.collider(this.player2, this.meteors3333, this.PlayerHitMeteors, null, this);
@@ -442,9 +464,11 @@ export class Level001 extends Phaser.Scene {
     }
 
     laserHitMeteors3(laserGroup, meteors3){
-        this.laserLimit = 0; 
+        this.laserLimit = 0;
+        this.laserLimit2 = 0; 
         meteors3.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
         console.log("3");
         this.physics.add.collider(this.player, this.meteors3, this.PlayerHitMeteors, null, this);
         this.physics.add.collider(this.player2, this.meteors3, this.PlayerHitMeteors, null, this);
@@ -455,8 +479,10 @@ export class Level001 extends Phaser.Scene {
 
     laserHitMeteors33(laserGroup, meteors33){
         this.laserLimit = 0; 
+        this.laserLimit2 = 0; 
         meteors33.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
         this.physics.add.collider(this.player, this.meteors33, this.PlayerHitMeteors, null, this);
         this.physics.add.collider(this.player2, this.meteors33, this.PlayerHitMeteors, null, this);
         this.physics.add.collider(this.laserGroup2, this.meteors33, this.laserHitMeteors33, null, this);
@@ -465,9 +491,11 @@ export class Level001 extends Phaser.Scene {
     }
 
     laserHitMeteors533(laserGroup, meteors533){
-        this.laserLimit = 0; 
+        this.laserLimit = 0;
+        this.laserLimit2 = 0; 
         meteors533.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
         console.log("2");
         this.physics.add.collider(this.player, this.meteors533 , this.PlayerHitMeteors, null, this);
         this.physics.add.collider(this.player2, this.meteors533 , this.PlayerHitMeteors, null, this);
@@ -478,8 +506,10 @@ export class Level001 extends Phaser.Scene {
 
     laserHitMeteors4433(laserGroup, meteors433){
         this.laserLimit = 0; 
+        this.laserLimit2 = 0; 
         meteors433.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
         console.log("1");
         this.physics.add.collider(this.player, this.meteors4433, this.PlayerHitMeteors, null, this);
         this.physics.add.collider(this.player2, this.meteors4433, this.PlayerHitMeteors, null, this);
@@ -490,8 +520,10 @@ export class Level001 extends Phaser.Scene {
 
     laserHitMeteors13333(laserGroup, meteors13333){
         this.laserLimit = 0;
+        this.laserLimit2 = 0;
         meteors13333.destroy();
         laserGroup.destroy();
+        laserGroup2.destroy();
         console.log("8");
         this.physics.add.collider(this.player, this.meteors13333, this.PlayerHitMeteors, null, this);
         this.physics.add.collider(this.player2, this.meteors13333, this.PlayerHitMeteors, null, this);
