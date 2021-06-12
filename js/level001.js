@@ -1,6 +1,7 @@
 import { Player } from "./player.js";
 import { Meteors } from "./meteors.js";
 import { Harpon } from "./harpon.js";
+import { Player2 } from "./player2.js";
 
 class LaserGroup extends Phaser.Physics.Arcade.Group
 {
@@ -113,6 +114,16 @@ export class Level001 extends Phaser.Scene {
             });
 
         this.physics.add.collider(this.player, this.meteors, this.PlayerHitMeteors, null, this);
+
+        this.player2 = new Player2(
+            this,
+            this.game.config.width * 0.5,
+            this.game.config.height,
+            'player2', 0
+            ).setDepth(2);
+
+            this.player2.setSize(100,175);
+            this.player2.body.offset.y = 100;
 
         //this.prepareHUD();
     }

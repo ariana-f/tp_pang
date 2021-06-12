@@ -1,4 +1,4 @@
-export class Player extends Phaser.Physics.Arcade.Sprite {
+export class Player2 extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
 
@@ -11,7 +11,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         this.initialFrame = frame;
 
         this.velocity = 2000;
-        this.controls = scene.input.keyboard.createCursorKeys();
+        var keys = scene.input.keyboard.addKeys({ up: 'W', left: 'A', right: 'D' });
 
         this.state = "idle";
         this.anims.play('idle');
@@ -21,7 +21,12 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     update(time) {
-        if(this.controls.left.isDown) {
+        // if(this.controls.left.isDown) {
+        //     this.setVelocityX(-this.velocity);
+        //     this.flipX = true;
+        //     this.state = 'walking';
+        // }
+        if(this.input.keyboard.A.isDown) {
             this.setVelocityX(-this.velocity);
             this.flipX = true;
             this.state = 'walking';
